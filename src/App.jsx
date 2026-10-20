@@ -56,35 +56,42 @@ export default function App() {
   // ================================================================
 
   function getAllTasks(tasks) {
-    // TODO
+    return tasks;
   }
 
   function getIncompleteTasks(tasks) {
-    // TODO
+    return tasks.filter(
+     (task)=>task.completed==false
+    );
   }
 
   function findTaskByTitle(tasks, title) {
-    // TODO
+    return tasks.filter((task) => task.title.include(title));
   }
 
   function countCompletedTasks(tasks) {
-    // TODO
+    return tasks.filter((task) => task.completed).length;
   }
 
   function addTask(tasks, newTask) {
-    // TODO
+    return [...tasks, newTask];
   }
 
   function removeTask(tasks, id) {
-    // TODO
+    return [...tasks.filter((task) => task.id!==id)];
   }
 
   function toggleTaskCompleted(tasks, id) {
-    // TODO
+    return tasks.map(task => 
+      task.id === id ? { ...task, completed: !task.completed } : task
+    );
   }
 
+
   function updateTaskPriority(tasks, id, newPriority) {
-    // TODO
+    return tasks.map(task => 
+      task.id === id ? { ...task, priority: newPriority } : task
+    );
   }
 
   // ================================================================
